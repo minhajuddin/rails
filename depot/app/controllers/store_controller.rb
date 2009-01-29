@@ -1,9 +1,17 @@
 class StoreController < ApplicationController
+  
+  
   def index
   	@products = Product.find_products_for_sale
+  	if session[:counter].nil?
+  		session[:counter] = 1
+  	else
+  		session[:counter] += 1
+  	end
   end
   
   def add_to_cart
+  	session[:counter] = 0
   	begin
   		product = Product.find(params[:id])
   	rescue ActiveRecord::RecordNotFound

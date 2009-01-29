@@ -1,5 +1,7 @@
 <h1> Your Pragmatic catalog </h1>
-
+<% if session[:counter] > 5 %>
+	You've been here  <%= pluralize(session[:counter], 'time') %>
+<%end%>
 <%for product in @products-%>
 <div class="entry">
 	<%=link_to(image_tag(product.img_url), {:action => "add_to_cart", :id => product}, :method => :post)%>	
