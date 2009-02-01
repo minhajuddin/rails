@@ -4,6 +4,7 @@
 	<head>
 		<title>PragProg Books Online Store</title>
 		<%=stylesheet_link_tag "depot", :media => "all" %>
+		<%= javascript_include_tag :defaults%>
 	</head>
 	<body id="store">
 		<div id="banner">
@@ -12,7 +13,9 @@
 		</div>
 		<div id="columns">
 			<div id="side">
-				<%=Time.now%><br />
+				<div id="cart">
+					<%= render(:partial => "cart", :object => @cart) %>
+				</div>
 				<a href="http://www......">Home</a><br />
 				<a href="http://www....../faq">Questions</a><br />
 				<a href="http://www....../news">News</a><br />
